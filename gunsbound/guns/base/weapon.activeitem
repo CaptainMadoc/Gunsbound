@@ -1,0 +1,150 @@
+{
+	//UIinfo
+	"itemName" : "testgun",
+	"shortdescription" : "testgun",
+	"description" : "description here",
+	"category" : "base",
+	"tooltipKind" : "base",
+	"inventoryIcon" : "icon.png",
+
+	//scripts
+	"scriptClass" : "/gunsbound/scriptlist/default.json",
+
+	//vanilla scripts
+	"scripts" : ["/gunsbound/scripts/main.lua"],
+	"scriptDelta" : 1,
+	"animationScripts" : ["/gunsbound/ui/main.lua"],
+
+	//item settings
+	"rarity" : "common",
+	"maxStack" : 1,
+	"price" : 0,
+	"twoHanded" : true,
+	
+	"animationStances" : "/gunsbound/stances/default.stances",
+	
+	"gunStats" : {
+		"maxMagazine" : 30,
+		"burst" : 3,
+		"fireTypes" : ["auto", "burst", "semi"],
+		//"rpm" : 600, //replaced by animation
+		"recoil" : 0,
+		"movingInaccuracy" : 30, //as its going by 14 velocity.
+		"standingInaccuracy" : 0
+	},
+	
+	"animation" : "/gunsbound/guns/base.animation",
+	"animationParts" : {},
+	"animationCustom" : {
+		"animatedParts" : {
+			"parts" : {
+				"gunbg" : {
+					"properties" : {
+						"zLevel" : 14,
+						"centered" : false,
+						"image" : "gunbg.png",
+						"offset" : [0.0, 0.0],
+						"transformationGroups" : ["gun", "R_hand", "R_a2", "R_a1", "base"]
+					}
+				},
+				"mag" : {
+					"properties" : {
+						"zLevel" : 17,
+						"centered" : false,
+						"image" : "mag.png",
+						"offset" : [0.0, 0.0],
+						"transformationGroups" : ["mag", "gun", "R_hand", "R_a2", "R_a1", "base"]
+					}
+				},
+				"gunlever" : {
+					"properties" : {
+						"zLevel" : 18,
+						"centered" : false,
+						"image" : "lever1.png",
+						"offset" : [0.0, 0.0],
+						"transformationGroups" : ["lever", "gun", "R_hand", "R_a2", "R_a1", "base"]
+					}
+				},
+				"gun" : {
+					"properties" : {
+						"zLevel" : 19,
+						"centered" : false,
+						"image" : "gun.png",
+						"offset" : [0.0, 0.0],
+						"muzzle_begin" : [13.7500, 3.6250],
+						"muzzle_end" : [15, 3.6250],
+						"transformationGroups" : ["gun", "R_hand", "R_a2", "R_a1", "base"]
+					}
+				},
+				"gunlever2" : {
+					"properties" : {
+						"zLevel" : 15,
+						"centered" : false,
+						"image" : "lever2.png",
+						"offset" : [0.0, 0.0],
+						"transformationGroups" : ["lever2", "gun", "R_hand", "R_a2", "R_a1", "base"]
+					}
+				}
+			}
+		},
+		"transformationGroups" : {
+			"gun" : {
+				"interpolated" : false,
+				"smoothness" : 4,
+				"position" : [-0.875, 1.675],
+				"setposition" : [-0.875, 1.675],
+				"rotation" : 0,
+				"setrotation" : 0,
+				"rPoint" : [0, 0],
+				"setrPoint" : [0, 0],
+				"scale" : [0.25, 0.25],
+				"sPoint" : [0, 0],
+				"setscale" : [0.25,0.25],
+				"setsPoint" : [0, 0]
+			},
+			"lever" : {
+				"interpolated" : false,
+				"smoothness" : 4,
+				"position" : [0, 0],
+				"setposition" : [0, 0],
+				"rotation" : 0,
+				"setrotation" : 0,
+				"rPoint" : [0, 0],
+				"setrPoint" : [0, 0],
+				"scale" : [1, 1],
+				"sPoint" : [0, 0],
+				"setscale" : [1, 1],
+				"setsPoint" : [0, 0]
+			},
+			"lever2" : {
+				"interpolated" : false,
+				"smoothness" : 4,
+				"position" : [0, 0],
+				"setposition" : [0, 0],
+				"rotation" : 0,
+				"setrotation" : 0,
+				"rPoint" : [0, 0],
+				"setrPoint" : [0, 0],
+				"scale" : [1, 1],
+				"sPoint" : [0, 0],
+				"setscale" : [1, 1],
+				"setsPoint" : [0, 0]
+			},
+			"mag" : {
+				"interpolated" : false,
+				"smoothness" : 4,
+				"position" : [0, 0],
+				"setposition" : [0, 0],
+				"rotation" : 0,
+				"setrotation" : 0,
+				"rPoint" : [0, 0],
+				"setrPoint" : [0, 0],
+				"scale" : [1, 1],
+				"sPoint" : [0, 0],
+				"setscale" : [1, 1],
+				"setsPoint" : [0, 0]
+			}
+		}
+	}
+
+}

@@ -1,0 +1,33 @@
+{
+	"itemName" : "red9mmAmmo",
+	"price" : 5,
+	"rarity" : "common",
+	"category" : "craftingMaterial",
+	"inventoryIcon" : "9mmParabellum.png",
+	"description" : "test",
+	"shortdescription" : "red9mm",
+	"casing" : [{
+			"finalVelocity" : [-2, 50],
+			"angularVelocity" : 720,
+			"color" : [255, 255, 255, 255],
+			"size" : 0.0625,
+			"destructionTime" : 0.075,
+			"image" : "empty9mmParabellum.png",
+			"destructionAction" : "fade",
+			"collidesForeground" : true,
+			"timeToLive" : 1,
+			"type" : "textured",
+			"layer" : "front",
+			"flippable" : true,
+			"initialVelocity" : [-19, 10],
+			"approach" : [0, -100],
+			"position" : [0, 0],
+			"fullbright" : false
+		}
+	],
+	"projectile" : "bullet-4",
+	"projectileConfig" : {
+		"speed" : 1000,
+		"processing" : "?setcolor=ff0000"
+	}
+}
