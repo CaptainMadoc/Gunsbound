@@ -169,6 +169,10 @@ function stance:busy()
 end
 
 function stance:play(name)
+	if name == nil then
+		sb.logWarn("name == nil")
+		return
+	end
 	if self.animations[name] then
 		if self.animations[name].playing then
 			self:skip(name)

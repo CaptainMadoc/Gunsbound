@@ -1,5 +1,6 @@
 [
 	"/gunsbound/class/weapon.lua",
+	"/gunsbound/class/attachement.lua",
 	"/gunsbound/class/magazine.lua",
 	"/gunsbound/class/camera.lua",
 	"/gunsbound/class/aim.lua",

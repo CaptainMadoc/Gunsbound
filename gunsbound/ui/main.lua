@@ -1,5 +1,6 @@
 require "/scripts/util.lua"
 require "/scripts/vec2.lua"
+require "/scripts/poly.lua"
 
 enabled = false
 localmessage = nil
@@ -51,24 +52,44 @@ function realInit(dt)
 	data["magazine"] = 30
 	data["maxMagazine"] = 30
 	data["load"] = false
-	position = world.entityPosition(ownerid)
+	data["inAccuracy"] = 1
+	data["muzzleDistance"] = {0,0}
+	position = activeItemAnimation.ownerPosition()
+end
+
+function circle(d,steps)
+	local pos = {d,0}
+	local pol = {}
+	for i=1,steps do
+		table.insert(pol,pos)
+		pos = vec2.rotate(pos, math.rad(360 / steps))
+	end
+	return pol
 end
 
 function realUpdate(dt)
 	localAnimator.clearDrawables()
-	position = lerp(position, world.entityPosition(ownerid), 0.5)
+	position = lerp(position, activeItemAnimation.ownerPosition(), 0.5)
 	local matt = {
-		{30 / data["maxMagazine"],0,0},
+		{15 / data["maxMagazine"],0,0},
 		{0,1,0},
 		{0,0,1}
 	}
-	local shift = (-0.125) * (30 / data["maxMagazine"])
+	local shift = (-0.0625) * (30 / data["maxMagazine"])
 	if data["load"] == "table" then
 		localAnimator.addDrawable({image = "/gunsbound/ui/ammo.png", position = vec2.add(position, {0, -3}), transformation = matt, fullbright = true}, "overlay")
 		shift = 0
 	end
 	
 	for i = 1,data["magazine"] do
-		localAnimator.addDrawable({image = "/gunsbound/ui/ammo.png", position = vec2.add(position, {((2.5 / data["maxMagazine"]) * i) + shift, -3.25}), transformation = matt, fullbright = true}, "overlay")
+		localAnimator.addDrawable({image = "/gunsbound/ui/ammo.png", position = vec2.add(position, {((3.75 / data["maxMagazine"]) * i) + shift, -3.25}), transformation = matt, fullbright = true}, "overlay")
 	end
+	
+	local distance = (math.abs(data["muzzleDistance"][2]) + math.abs(data["muzzleDistance"][1])) / 2
+	local cir = circle((0.125 + (data["inAccuracy"] / 45) * distance) ,16)
+	world.debugPoly( poly.translate(cir, activeItemAnimation.ownerAimPosition()), "white")
+	for i=2,#cir do
+		localAnimator.addDrawable({line = {cir[i - 1], cir[i]},width = 1, color = {255,255,255,72},fullbright = true, position = activeItemAnimation.ownerAimPosition()}, "overlay")
+	end
+		localAnimator.addDrawable({line = {cir[1], cir[#cir]},width = 1, color = {255,255,255,72},fullbright = true, position = activeItemAnimation.ownerAimPosition()}, "overlay")
 end

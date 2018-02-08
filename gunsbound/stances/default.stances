@@ -3,11 +3,11 @@
 		"loop" : false,
 		"key" : [
 			{
-				"wait" : 0.025, //rpmtime here, 60 sec divide by 600rpm = 0.1 divide by 4 = 0.025
+				"wait" : 0.025,
 				//"burstParticle" : [],
 				"flags" : ["eject_ammo"],
 				//"animationState" : {},
-				"sounds" : ["/sfx/gun/ar4.ogg"],
+				"sounds" : ["@fireSounds"], //@ prefix tells its from base.animation
 				//"lights" : {},
 				"sprite" : {
 					"base" : {

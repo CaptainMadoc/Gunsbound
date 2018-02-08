@@ -418,7 +418,8 @@
 	},
 	"particleEmitters" : {},
 	"sounds" : {
-		"dry" : ["/sfx/gun/reload/machinepistol_reload_clip2.ogg"]
+		"dry" : ["/sfx/gun/reload/machinepistol_reload_clip2.ogg"],
+		"fireSounds" : []
 	},
 	"transformationGroups" : {
 		"base" : {
